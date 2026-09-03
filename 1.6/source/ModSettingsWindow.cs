@@ -20,7 +20,17 @@ namespace Artisan_Experience
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(parent);
 
-            string label = string.Format("{0}: {1}", "ArtisanExperience.ExperiencePerArt".Translate(), ModSettings.ExperiencePerArt);
+            ModSettings.ExperienceExcellentOrBelow = DrawExperienceRow(listing, "ArtisanExperience.ExperienceExcellentOrBelow", ModSettings.ExperienceExcellentOrBelow);
+            ModSettings.ExperienceMasterwork = DrawExperienceRow(listing, "ArtisanExperience.ExperienceMasterwork", ModSettings.ExperienceMasterwork);
+            ModSettings.ExperienceLegendary = DrawExperienceRow(listing, "ArtisanExperience.ExperienceLegendary", ModSettings.ExperienceLegendary);
+
+            listing.Gap(listing.verticalSpacing);
+            listing.End();
+        }
+
+        private static int DrawExperienceRow(Listing_Standard listing, string translationKey, int currentValue)
+        {
+            string label = string.Format("{0}: {1}", translationKey.Translate(), currentValue);
 
             Rect rowRect = listing.GetRect(30f);
             rowRect.width = RowWidth;
@@ -30,11 +40,8 @@ namespace Artisan_Experience
             Widgets.Label(rowRect.LeftPart(LabelPct), label);
             Text.Anchor = previousAnchor;
 
-            float sliderValue = Widgets.HorizontalSlider(rowRect.RightPart(1f - LabelPct), ModSettings.ExperiencePerArt, 0f, MaxExperiencePerArt, middleAlignment: true, roundTo: ExperiencePerArtIncrement);
-            ModSettings.ExperiencePerArt = Mathf.RoundToInt(sliderValue);
-
-            listing.Gap(listing.verticalSpacing);
-            listing.End();
+            float sliderValue = Widgets.HorizontalSlider(rowRect.RightPart(1f - LabelPct), currentValue, 0f, MaxExperiencePerArt, middleAlignment: true, roundTo: ExperiencePerArtIncrement);
+            return Mathf.RoundToInt(sliderValue);
         }
     }
 }

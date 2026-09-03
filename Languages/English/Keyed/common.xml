@@ -2,5 +2,7 @@
 <LanguageData>
     <ArtisanExperience.LoadingLabel>Artisan Experience Loading</ArtisanExperience.LoadingLabel>
     <ArtisanExperience.SettingsTitle>Artisan Experience</ArtisanExperience.SettingsTitle>
-    <ArtisanExperience.ExperiencePerArt>Experience per crafted art</ArtisanExperience.ExperiencePerArt>
+    <ArtisanExperience.ExperienceExcellentOrBelow>Experience for excellent quality and below</ArtisanExperience.ExperienceExcellentOrBelow>
+    <ArtisanExperience.ExperienceMasterwork>Experience for masterwork quality</ArtisanExperience.ExperienceMasterwork>
+    <ArtisanExperience.ExperienceLegendary>Experience for legendary quality</ArtisanExperience.ExperienceLegendary>
 </LanguageData>
