@@ -10,6 +10,11 @@ namespace Artisan_Experience
     {
         public static void Postfix(CompArt __instance, Pawn pawn)
         {
+            if (pawn?.skills == null)
+            {
+                return;
+            }
+
             JobDriver curDriver = pawn.jobs.curDriver;
             if (curDriver is JobDriver_DoBill || curDriver is JobDriver_ConstructFinishFrame)
             {
